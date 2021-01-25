@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="main" style="width: 600px;height:400px;"></div>
+</body>
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('main'));
+    var option = {
+            title: {
+                text: '{{plplpl.pokename}}能力分布表'
+            },
+            tooltip: {},
+            legend: {
+                data: ['{{plplpl.pokename}}']
+            },
+            radar: {
+            // shape: 'circle',
+                name: {
+                    textStyle: {
+                        color: '#fff',
+                        backgroundColor: '#999',
+                        borderRadius: 3,
+                        padding: [3, 5]
+                    }
+                },
+                indicator: [
+                    { name: 'hp', max: 255},
+                    { name: '攻击', max: 255},
+                    { name: '特攻', max: 255},
+                    { name: '防御', max: 255},
+                    { name: '特防', max: 255},
+                    { name: '速度', max: 255}
+                ]
+            },
+            series: [{
+                name: '预算 vs 开销（Budget vs spending）',
+                type: 'radar',
+                // areaStyle: {normal: {}},
+                data: [
+                    {
+                        value: [{{plplpl.hp}} ,{{plplpl.attack}}, {{plplpl.sattack}}, {{plplpl.difense}}, {{plplpl.sdifense}}, {{plplpl.speed}}],
+                        name: '{{plplpl.pokename}}'
+                    },
+                ]
+            }]
+        };
+        myChart.setOption(option);
+</script>
+</html>

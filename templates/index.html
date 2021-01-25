@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <ul>
+        {% for i in users %}
+        <li>{{ i }},{{users[i]}}</li>
+        {% endfor %}
+    </ul>
+    <button type="button">
+        <a href="logout">deng出</a>
+    </button> -->
+    <table>
+        <tr>
+            <th>
+                编号
+            </th>
+            <th>
+                名字
+            </th>
+            <th>
+                属性1
+            </th>
+            <th>
+                属性2
+            </th>
+        </tr>
+        {% for i in users %}
+            <tr>
+                <td>
+                    <a href="/index/{{i.number}}">
+                        {{i.number}}
+                    </a>
+                </td>
+                <td>
+                    <a href="/index/{{i.pokename}}">
+                        {{i.pokename}}
+                    </a>
+                </td>
+                <td>
+                    {{i.type1}}
+                </td>
+                <td>
+                    {{i.type2}}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
